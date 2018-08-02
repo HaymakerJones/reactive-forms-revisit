@@ -36,10 +36,14 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppComponent } from './app.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { NestedFormComponent } from './nested-form/nested-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DynamicFormComponent,
+    NestedFormComponent
   ],
   imports: [
     BrowserModule,
