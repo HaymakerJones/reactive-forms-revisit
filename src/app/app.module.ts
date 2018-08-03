@@ -38,12 +38,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { NestedFormComponent } from './nested-form/nested-form.component';
+import { ValidationComponent } from './validation/validation.component';
+import { SummaryFormComponent } from './summary-form/summary-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DynamicFormComponent,
-    NestedFormComponent
+    NestedFormComponent,
+    ValidationComponent,
+    SummaryFormComponent
   ],
   imports: [
     BrowserModule,

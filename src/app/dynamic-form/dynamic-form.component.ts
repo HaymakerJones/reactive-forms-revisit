@@ -13,6 +13,28 @@ export class DynamicFormComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
+    this.myForm = this.fb.group({
+      email: [''],
+      phones: this.fb.array([])
+    });
+  }
+
+  get PhoneForms() {
+    return this.myForm.get('phones') as FormArray;
+  }
+
+  addPhone() {
+    const phone = this.fb.group({
+      area: [],
+      prefix: [],
+      line: []
+    });
+
+    this.PhoneForms.push(phone);
+  }
+
+  deletePhone(index) {
+    this.PhoneForms.removeAt(index);
   }
 
 }
