@@ -1,3 +1,40 @@
-<p>
-  summary-form works!
-</p>
+<form [formGroup]="myForm">
+
+  Value: {{myForm.value | json}}
+  <hr>
+
+  <mat-form-field>
+    <input matInput placeholder="name" formControlName="name">
+
+    <mat-error *ngIf="formErrors.name">
+      {{formErrors.name}}
+    </mat-error>
+
+  </mat-form-field>
+
+  <div formArrayName="addresses">
+    <div *ngFor="let address of AddressForm.controls; let i=index" [formGroupName]="i">
+
+      <mat-form-field>
+        <input matInput placeholder="city" formControlName="city">
+        <mat-error *ngIf="formErrors.addresses[i].city">
+          {{formErrors.addresses[i].city}}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="country" formControlName="country">
+
+        <mat-error *ngIf="formErrors.addresses[i].country">
+          {{formErrors.addresses[i].country}}
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" (click)="removeAddress(i)">Delete</button>
+    </div>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="addAddress()">Add</button>
+  <button mat-raised-button color="primary" [disabled]="myForm.invalid" (click)="onSubmit( myForm.value )">Submit</button>
+
+</form>
